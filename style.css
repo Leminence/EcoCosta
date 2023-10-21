@@ -1,0 +1,80 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: rgba(155, 255, 155, 0.5);
+    margin: 0;
+    padding: 0;
+    color: white;
+    justify-content: center;
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.menu {
+    width: 8vh;
+    height: 100%;
+    background-color: rgb(50, 100, 50);
+    position: fixed;
+    left: 0; 
+    padding-left: 1vh;
+}
+.menubutton {
+    background-image: url(icons/Hamburger_icon.svg.png);
+    width: 7vh;
+    height: 7vh;
+    background-size: cover;
+    
+}
+h1 {
+    margin: 0;
+    color: rgb(50, 100, 50);
+}
+.header2 div {
+    margin: 1vw;
+    vertical-align: middle;
+    justify-content: center;
+}
+.corpo {
+    width: 60vw;
+    height: 100vw;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2vw;
+    justify-content: center;
+}
+.reelsheader {
+    display: flex;
+}
+.reelsstatus {
+    border-radius: 50vw;        
+    border: orange 0.3vw solid;
+    padding: 0;
+}
+.reelsstatus div {
+    width: 8vw;
+    height: 8vw;
+    background-color: white;
+    border-radius: 50vw;
+    margin: 0.5vw;
+}
+.perfil {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding-top: 2vw;
+}
+.perfilpfp {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50vh;        
+    border: orange 0.3vw solid;
+    padding: 0.3vw;
+    margin: auto;
+}
+.perfilpfp div {
+    width: inherit;
+    height: inherit;
+    background-color: rgb(50, 100, 50);
+    border-radius: 50vw;
+
+}
