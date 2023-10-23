@@ -19,6 +19,7 @@ function criarposts () {
         miniatura.setAttribute('id', 'post' + i );
         miniatura.addEventListener("click", function () {
             document.getElementById('postminiatura').innerHTML = "<p>"+this.innerHTML+"<p>"
+            document.getElementById('idpost').innerHTML = "id: "+this.innerHTML
             postexpandido.style.display = "flex"
         })
         document.getElementById('gridpost').appendChild(miniatura);
