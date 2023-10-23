@@ -19,6 +19,7 @@ class Post {
 let postexpandido = document.getElementById('visualizarpost') 
 document.getElementById('fechar').addEventListener('click', function () {
     postexpandido.style.display = "none"
+    document.body.style.overflowY = "auto"
 })
 let gridposts = document.getElementById("gridposts")
 function criarposts () {
@@ -32,6 +33,7 @@ function criarposts () {
             document.getElementById('postminiatura').style.backgroundColor = this.style.backgroundColor
             document.getElementById('idpost').innerHTML = "id: "+this.innerHTML
             postexpandido.style.display = "flex"
+            document.body.style.overflowY = "hidden"
         })
         document.getElementById('gridpost').appendChild(miniatura);
     }
