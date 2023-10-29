@@ -1,3 +1,4 @@
+
 function estadowrapper() {
     if (document.getElementById('wrapper').style.display == 'grid') {
         document.getElementById('wrapper').style.display = 'none';
@@ -23,7 +24,7 @@ document.getElementById('fechar').addEventListener('click', function () {
 })
 let gridposts = document.getElementById("gridposts")
 function criarposts () {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 20; i++) {
         let miniatura = document.createElement('div');
         miniatura.style.backgroundColor = `rgb(${Math.floor(Math.random()* 255) },${Math.floor(Math.random()* 255)},${Math.floor(Math.random()* 255)})`
         miniatura.innerHTML = i
@@ -40,3 +41,4 @@ function criarposts () {
 }
 
 criarposts()
+
