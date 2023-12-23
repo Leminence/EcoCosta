@@ -1,0 +1,144 @@
+<script>
+
+function estadowrapper() {
+    if (document.getElementById('wrapper').style.display == '') {
+        document.getElementById('wrapper').style.display = 'none';
+        document.getElementById('wrapperfechar').innerHTML = '⟩'
+    } else {
+        document.getElementById('wrapper').style.display = '';
+        document.getElementById('wrapperfechar').innerHTML = '⟨'
+    }
+}
+
+let postexpandido = document.getElementById('visualizarpost') 
+document.getElementById('fechar').addEventListener('click', function () {
+    postexpandido.style.display = "none"
+    document.body.style.overflowY = "auto"
+})
+
+let userexpandido = document.getElementById('visualizaruser')
+document.getElementById('abriruser').onclick = () => {
+    userexpandido.style.display = "flex"
+    document.body.style.overflowY = "hidden"
+}
+document.getElementById('fecharuser').addEventListener('click', function () {
+    userexpandido.style.display = "none"
+    document.body.style.overflowY = "auto"
+})
+document.getElementById('abrirtags').addEventListener('click', function () {
+    document.getElementById('visualizartags').style.display = "flex"
+    document.body.style.overflowY = "hidden"
+})
+document.getElementById('fechartags').addEventListener('click', function () {
+    compareArrays(tagsSelecionadas, )
+    document.getElementById('visualizartags').style.display = "none"
+    document.body.style.overflowY = "auto"
+})
+document.getElementById('gridbutton').onclick = () => {
+    document.getElementById('gridbutton').style.backgroundColor = 'rgb(150, 200, 150)'
+    document.getElementById('gridbutton').style.color = 'white'
+    document.getElementById('timelinebutton').style.backgroundColor = ''
+    document.getElementById('timelinebutton').style.color = ''
+}
+document.getElementById('timelinebutton').onclick = () => {
+    document.getElementById('timelinebutton').style.backgroundColor = 'rgb(150, 200, 150)'
+    document.getElementById('timelinebutton').style.color = 'white'
+    document.getElementById('gridbutton').style.backgroundColor = ''
+    document.getElementById('gridbutton').style.color = ''
+}
+document.getElementById('gridbutton').style.backgroundColor = 'rgb(150, 200, 150)'
+document.getElementById('gridbutton').style.color = 'white'
+
+let aumentargrid = document.getElementById('aumentargrid')
+let diminuirgrid = document.getElementById('diminuirgrid')
+const gridtamanho = document.getElementById('gridtamanho')
+let gridposts = document.getElementById("gridpost")
+
+gridlength = 4
+gridposts.style.gridTemplateColumns = 'repeat('+gridlength+', 1fr)'
+gridtamanho.innerHTML = gridlength
+aumentargrid.addEventListener('click', () => {
+    if (gridlength <= 9) {
+        gridlength += 1 
+        gridtamanho.innerHTML = gridlength
+        gridposts.style.gridTemplateColumns = 'repeat('+gridlength+', 1fr)'
+    } 
+})
+diminuirgrid.addEventListener('click', () => {
+    if (gridlength >= 2) {
+        gridlength -= 1 
+        gridtamanho.innerHTML = gridlength
+        gridposts.style.gridTemplateColumns = 'repeat('+gridlength+', 1fr)'
+    }
+})
+
+function compareArrays(arr1, arr2) {
+    // Percorre o primeiro array
+    // Verifica se a variável arr2 está definida
+    if (!arr2) {
+        // Se não estiver, retorna false
+        return false;
+    }
+    for (const value of arr1) {
+    // Verifica se o valor está presente no segundo array
+        if (!arr2.includes(value)) {
+            // Se não estiver, retorna false
+            return false;
+        }
+    }
+    // Se chegou aqui, todos os valores estavam presentes
+    return true;
+}
+
+allposts = document.getElementsByClassName('miniaturapost')
+alltags = document.getElementsByClassName('cate')
+tagsSelecionadas = []
+
+function zerarfiltros() {
+    tagsSelecionadas = []
+    document.getElementById('mostrarfiltros').innerHTML = '[ '+tagsSelecionadas.join(' ] [ ')+' ]'
+    for (const i of alltags) {
+        i.checked = false
+    }
+    for (const i of allposts) {
+        if (compareArrays(tagsSelecionadas, i.dataset.categorias.split(',')) == true) {
+            i.style.display = ''
+        } else {
+            i.style.display = 'none'
+        }
+    }
+}
+function categoriasfiltradas() {
+    const selecionadas = []
+    for (const i of alltags) {
+        if (i.checked == true) {
+            selecionadas.push(i.value)
+        } 
+    }
+    tagsSelecionadas = selecionadas
+    document.getElementById('mostrarfiltros').innerHTML = '[ '+tagsSelecionadas.join(' ] [ ')+' ]'
+    for (const i of allposts) {
+        if (compareArrays(tagsSelecionadas, i.dataset.categorias.split(',')) == true) {
+            i.style.display = ''
+        } else {
+            i.style.display = 'none'
+        }
+    }
+} 
+
+for (const i of allposts) {
+    i.style.backgroundImage = 'url(./images/'+i.dataset.imagem+'.png)'
+    i.onclick = function () {
+        document.getElementById('postminiatura').style.backgroundImage = 'url(./images/'+this.dataset.imagem+'.png)'
+        document.getElementById('autorpost').innerHTML = 'Autor: '+this.dataset.autor;
+        document.getElementById('idpost').innerHTML = 'id: '+this.dataset.id;
+        document.getElementById('nomepost').innerHTML = 'Nome: '+this.dataset.nome;
+        document.getElementById('especiepost').innerHTML = 'Especie: '+this.dataset.especie;
+        document.getElementById('descricaopost').innerHTML = this.dataset.descricao;
+        const categoriaspost = this.dataset.categorias.split(',')
+        document.getElementById('categoriaspost').innerHTML = categoriaspost.join(", ");
+        postexpandido.style.display = "flex"
+        document.body.style.overflowY = "hidden"
+    }
+}
+</script>

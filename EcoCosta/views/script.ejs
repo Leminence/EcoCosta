@@ -1,0 +1,53 @@
+<script>
+function estadowrapper() {
+    if (document.getElementById('wrapper').style.display == 'grid') {
+        document.getElementById('wrapper').style.display = 'none';
+        document.getElementById('wrapperfechar').innerHTML = '⟩'
+    } else {
+        document.getElementById('wrapper').style.display = 'grid';
+        document.getElementById('wrapperfechar').innerHTML = '⟨'
+    }
+}
+
+let postexpandido = document.getElementById('visualizarpost') 
+document.getElementById('fechar').addEventListener('click', function () {
+    postexpandido.style.display = "none"
+    document.body.style.overflowY = "auto"
+})
+
+let aumentargrid = document.getElementById('aumentargrid')
+let diminuirgrid = document.getElementById('diminuirgrid')
+const gridtamanho = document.getElementById('gridtamanho')
+let gridposts = document.getElementById("gridpost")
+
+gridlength = 5
+gridposts.style.gridTemplateColumns = 'repeat('+gridlength+', 1fr)'
+gridtamanho.innerHTML = gridlength
+aumentargrid.addEventListener('click', () => {
+    gridlength += 1 
+    gridtamanho.innerHTML = gridlength
+    gridposts.style.gridTemplateColumns = 'repeat('+gridlength+', 1fr)'
+})
+diminuirgrid.addEventListener('click', () => {
+    gridlength -= 1 
+    gridtamanho.innerHTML = gridlength
+    gridposts.style.gridTemplateColumns = 'repeat('+gridlength+', 1fr)'
+})
+
+allposts = document.getElementsByClassName('miniaturapost')
+
+for (const i of allposts) {
+    i.style.backgroundImage = 'url(./images/'+i.dataset.imagem+'.png)'
+    i.onclick = function () {
+        document.getElementById('postminiatura').style.backgroundImage = 'url(./images/'+this.dataset.imagem+'.png)'
+        document.getElementById('autorpost').innerHTML = 'Autor: '+this.dataset.autor;
+        document.getElementById('idpost').innerHTML = 'id: '+this.dataset.id;
+        document.getElementById('nomepost').innerHTML = 'Nome: '+this.dataset.nome;
+        document.getElementById('especiepost').innerHTML = 'Especie: '+this.dataset.especie;
+        document.getElementById('descricaopost').innerHTML = this.dataset.descricao;
+        document.getElementById('categoriaspost').innerHTML = this.dataset.categorias;
+        postexpandido.style.display = "flex"
+        document.body.style.overflowY = "hidden"
+    }
+}
+</script>

@@ -1,0 +1,94 @@
+<div class="menu" id="menu">
+    <%- include("menu") %>
+</div>
+<div>
+<div class="corpo">
+    <div class="perfil">
+        <div class="perfilpfp">
+            <div></div>
+        </div>
+        <div class="perfilinfo">
+            <h1>Eco Costa</h1>
+            <div>
+                <h4>
+                </h4>
+            </div>
+        </div>
+        
+    </div>
+    <div class="categorias">
+        <h4>Categorias</h4>
+        <div id="wrapper">
+            <div id="item1">
+                <div class="checkcategory">
+                    <input type="checkbox" id="cat1">
+                    <label for="cat1">Plantas</label>
+                </div>
+                <div class="checkcategory">
+                    <input type="checkbox" id="cat2">
+                    <label for="cat2">Plantas</label>
+                </div>
+                <div class="checkcategory">
+                    <input type="checkbox" id="cat3">
+                    <label for="cat3">Plantas</label>
+                </div>
+            </div>
+            <div id="item2">
+                <div class="checkcategory">
+                    <input type="checkbox" id="cat1">
+                    <label for="cat1">Plantas</label>
+                </div>
+                <div class="checkcategory">
+                    <input type="checkbox" id="cat2">
+                    <label for="cat2">Plantas</label>
+                </div>
+                <div class="checkcategory">
+                    <input type="checkbox" id="cat3">
+                    <label for="cat3">Plantas</label>
+                </div>
+            </div>
+            <div id="item3">
+                <div class="checkcategory">
+                    <input type="checkbox" id="cat1">
+                    <label for="cat1">Plantas</label>
+                </div>
+                <div class="checkcategory">
+                    <input type="checkbox" id="cat2">
+                    <label for="cat2">Plantas</label>
+                </div>
+                <div class="checkcategory">
+                    <input type="checkbox" id="cat3">
+                    <label for="cat3">Plantas</label>
+                </div>
+            </div>
+        </div>
+        <div class="close" onclick="estadowrapper()">
+            <h5 style="transform: rotate(90deg);" id="wrapperfechar">⟩</h5>
+        </div>
+    </div>
+    <div class="postagens">
+        <h4>Postagens</h4>
+        <h4>Timeline</h4>
+    </div>
+    <div class="tamanhogrid">
+        <text id="aumentargrid">+</text>
+        <p id="gridtamanho">4</p>
+        <text id="diminuirgrid">-</text>
+    </div>
+    <div class="gridpostagens" id="gridpost">
+        <% for (const i of postagens) { %>
+            <div class="miniaturapost" 
+            data-id="<%= i.id %>" 
+            data-autor="<%= i.autor %>"
+            data-nome="<%= i.nome %>"
+            data-especie="<%= i.especie %>"
+            data-descricao="<%= i.descricao %>"
+            data-imagem="<%= i.imagem %>"
+            data-categorias="<%= i.categorias %>">
+            
+            </div>
+        <% } %>
+    </div>
+</div>
+</div>
+<%- include('script') %>

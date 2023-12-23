@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>E-Costa</title>
+</head>
+<body>
+    <div id="visualizaruser">
+        <div id="userexpandido">
+            <div id="userminiatura" class="userperfil"></div>
+            <p id="usernome" style="font-size: 3vw;"><%= userName %></p>
+            <a href="logout"><p>Sair</p></a>
+        </div>
+        <div class="fechar" id="fecharuser">✖</div>
+    </div>
+
+    <div id="visualizartags">
+        <div id="tagsexpandido">
+            <% todascategorias = []
+            for (const i of postagens) {
+                    for (const y of i.categorias) {
+                todascategorias.push(y)
+                }
+            } 
+            function filtrarcategorias(data) {
+                return data.filter((value, index) => data.indexOf(value) === index)
+            } %>
+            <% for (const i of filtrarcategorias(todascategorias)) { %>
+                <div>
+                    <input id="<%= i %>" type="checkbox" class="cate" name="<%= i %>" value="<%= i %>">
+                    <label for="<%= i %>" ><%= i %></label>
+                </div>
+            <% } %> 
+        </div>
+        <div class="fechar" id="fechartags" onclick="categoriasfiltradas()">✖</div>
+    </div>
+
+    <div id="visualizarpost">
+        <div id="postexpandido">
+            <div id="postminiatura"></div>
+            <div id="infodopost">
+                <div id="autoreid">
+                    <h2 id="autorpost"></h2>
+                <p id="idpost"></p>
+                </div>
+                <div id="descricaoexpandido">
+                    <h2 id="nomepost"></h2>
+                    <p id="especiepost"></p>
+                    
+                    <br>
+    
+                    <h3>Descrição especializada:</h3>
+                    <p id="descricaopost">
+                    </p>
+                    </div>
+                <div id="categoriasexpandido">
+                    <h2>Categoria(s):</h2>
+                    <h2 id="categoriaspost"></h2>
+                </div> 
+            </div>
+            <div class="fechar" id="fechar">✖</div>
+        </div>
+    </div>
+    
+<%- include(contentFile) %>
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<% if(successMessage) { %>
+    <script>
+        alert('<%= successMessage %>')
+        window.location.href='/home'
+    </script>
+<% } %>
+<% if(erroMessage) { %>
+    <script>
+        alert('<%= erroMessage %>')
+        window.location.href='/cadastro'
+    </script>
+<% } %>
+<div class="loginpage">
+    <div class="innercriarpost">
+        <div id="formlogin">
+            <form action="criar-post" method="post">
+                <h1 style="font-size: 3vw;">Crie posts</h1>
+                <div><label for="imagem">Imagem:</label><input type="text" id="imagem" name="imagem" required></div>
+                <div><label for="autor">Autor:</label><input type="text" id="autor" name="autor" required></div>
+                <div><label for="nome">Nome:</label><input type="text" id="nome" name="nome" required></div>
+                <div><label for="especie">Especie:</label><input type="text" id="especie" name="especie" required></div>
+                <div><label for="descricao">Descrição:</label><input type="text" id="descricao" name="descricao" required></div>
+                <div id="postcategorias" style="display: flex;" name="postcategorias">
+
+                </div>
+                <div><button id="criartag" type="button">+ Categorias</div>
+                <div><input type="submit" value="Criar-Post"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function criarElementos() {
+    console.log('a')
+    // Conta a quantidade de elementos com a classe "elementos"
+    const elementos = document.querySelectorAll(".elementos");
+    const quantidadeElementos = elementos.length;
+
+    // Cria uma nova div com a classe "elementos"
+    const div = document.createElement("div");
+    div.classList.add("elementos");
+        div.style.margin = '1vw'
+    // Cria uma nova label com o texto "Nome"
+    const label = document.createElement("label");
+    label.textContent = `Categoria-${quantidadeElementos + 1}`;
+
+    // Cria um novo input tipo texto com o id dinamico
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = 'postcategorias'
+    input.id = `input-nome-${quantidadeElementos}`;
+    input.name = `categoria`;
+
+    // Adiciona a label e o input à div
+    div.appendChild(label);
+    div.appendChild(input);
+
+    // Adiciona a div ao documento
+    document.getElementById('postcategorias').appendChild(div);
+}
+document.getElementById('criartag').addEventListener('click', criarElementos) 
+</script>

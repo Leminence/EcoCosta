@@ -1,0 +1,419 @@
+@font-face {
+    font-family: biolium;
+    src: url(../font/linux_biolinum/LinBiolinum_aS.ttf);
+}
+::-webkit-scrollbar {
+    display: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5vw;
+}
+body {
+    background-color: rgba(150, 200, 150, 1);
+    color: rgb(100, 150, 100);
+    justify-content: center;
+    display: flex;
+    padding-bottom: 2vw;
+    max-width: 100%;
+    overflow-y: auto;
+}
+.menu {
+    display: grid;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    z-index: 2;
+    text-align: center;
+    padding: 1vw;
+    background-color: rgb(100, 150, 100);
+}
+.menu a {
+    position: relative;
+    display: flex;
+    margin-bottom: 5vh;
+    display: grid;
+    align-items: center;
+    z-index: 2;
+}
+.buttonhover {
+    opacity: 0;
+    left: 5vw;
+    position: absolute;
+    background-color: white;
+    cursor: default;
+    z-index: -1;
+    border-radius: 1vw;
+    padding: 0.5vw;
+    font-size: 1.5vw;
+    transition: all 0.5s;
+    transform: translateX(-50vw);
+    margin: auto;
+    border: 1px solid rgb(100, 150, 100);
+    color: rgb(100, 150, 100);
+    text-wrap:nowrap;
+}
+.menu div:hover + .buttonhover {
+    opacity: 1;
+    transform: translateX(0);
+}
+.userperfil {
+    background-image: url(../icons/User-icon.png);
+    background-size: 100%;
+    background-color: rgb(100, 150, 100);
+    border-radius: 100%;
+}
+#userminiatura {
+    align-self: center;
+    width: 70%;
+    margin: auto;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+.userperfil, .menubutton, .buttoncadastro, .buttonsobre {
+    width: 4vw;
+    aspect-ratio: 1/1;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position:center;
+    cursor: pointer;
+    position: relative;
+}
+.menubutton {
+    background-image: url(../icons/Home-icon.png);
+}
+.buttoncadastro {
+    background-image: url(../icons/User-icon.png);
+}
+.buttonsobre {
+    background-image: url(../icons/Info-icon.png);
+}
+h1 {
+    font-size: 4vw;
+}
+h4 {
+    font-size: 2vw;
+    cursor: default;
+    padding: 1vw;
+}
+.corpo {
+    width: 60vw;
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2vw;
+    justify-content: center;
+    padding: 2vw;
+    position: relative;
+    top: 2vw;
+    z-index: 1;
+}
+.perfil {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2vw;
+}
+.perfilpfp {
+    width: 30%;
+    aspect-ratio: 1/1;
+    border-radius: 50vh;        
+    border: orange 0.3vw solid;
+    padding: 0.3vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+.perfilpfp div {
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-image: url(../icons/logo-ecosta.jpg);
+    background-size: cover;
+    border-radius: 50vw;
+}
+.perfilinfo {
+    width: 70%;
+}
+.categorias, .postagens {
+    border-top: 0.1vw solid rgb(150, 200, 150);
+    text-align: center;
+} 
+#wrapper {
+    display: grid;
+}
+#innerwrapper {
+    margin-bottom: 1vw;
+    border-radius: 2vw;
+}
+.categorias button {
+    width: 100%;
+    border: 0;
+    text-align: center;
+    background-color: rgb(150, 200, 150);
+    padding: 1vw;
+    color: white;
+    cursor: pointer;
+    min-height: 5vw;
+}
+.postagens {
+    display: flex;
+}
+.close {
+    width: 100%;
+    height: 2vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    transition: all 0.5s;
+}
+.close h5 {
+    margin: auto;
+    font-size: 1vw;
+}
+.close:hover {
+    background-color: rgb(240, 240, 240);
+}
+.postagens h4 {
+    width: 50%;
+    cursor: pointer;
+    margin-bottom: 0.5vw;
+    transition: all 0.5s;
+}
+.postagens h4:hover {
+    background-color: rgb(240, 240, 240);
+}
+.tamanhogrid {
+    background-color: rgb(240, 240, 240);
+    border-radius: inherit;
+    width: fit-content;
+    padding: 0.5vw;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+.tamanhogrid text {
+    background-color: rgb(100, 150, 100);
+    color: white;
+    width: 3vw;
+    text-align: center;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    cursor: pointer;
+    font-size: 2vw;
+    display: grid;
+    align-items: center;
+}
+.tamanhogrid p {
+    width: 3vw;
+    aspect-ratio: 1/1;
+    text-align: center;
+    font-size: 2vw;
+    display: grid;
+    align-items: center;
+}
+.gridpostagens {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    grid-column-gap: 0.3vw;
+    grid-row-gap: 0.3vw;
+    padding-top: 0.5vw;
+}
+.gridpostagens div {
+    aspect-ratio: 1/1;
+    background-size: cover;
+    cursor: pointer;
+}
+#visualizarpost , #visualizaruser , .loginpage, #visualizartags {
+    display: none;
+    position: fixed;
+    z-index: 4;
+    width: 100vw;
+    height: 100vh;
+}
+#visualizarpost, #visualizaruser, #visualizartags {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+#visualizaruser {
+    position: fixed;
+    text-align: center;
+}
+#visualizaruser a {
+    background-color: crimson;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    left: 0;
+    display: grid;
+    align-items: center;
+    text-decoration: none; 
+}
+#userexpandido {
+    position: relative;
+    display: grid;
+    align-items: center;
+}
+#visualizaruser a p {
+    color: white;
+    font-size: 3vw;
+}
+.loginpage {
+    display: flex;
+    background-color: rgb(50, 75, 50);
+    background-image: url(../icons/fundo-login.jpg);
+    background-size: cover;
+}
+#postexpandido, #innerloginpage, .innercadastropage, .innercriarpost, #userexpandido, #tagsexpandido {
+    margin: auto;
+    height: 70%;
+    z-index: 2;
+    aspect-ratio: 2/1;
+    display: flex;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 0.5vw;
+    overflow: hidden;
+    background-color: white;
+}
+#tagsexpandido {
+    aspect-ratio: 5/3;
+    display: grid;
+    background: none;
+    grid-template-columns: repeat(3, 1fr);
+    box-shadow: none;
+}
+#tagsexpandido div {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    border: 4px double white;
+}
+#tagsexpandido input {
+    display: none;
+}
+#tagsexpandido label {
+    display: grid;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: crimson;
+    color: white;
+}
+#tagsexpandido input:checked + label {
+    background-color: rgb(100, 150, 100);
+    
+}
+#userexpandido {
+    display: block;
+    height: 80%;
+    aspect-ratio: 1/1;
+}
+#usernome {
+    width: 100%;
+    color: rgb(100, 150, 100);
+}
+#innerloginpage {
+    box-shadow: none;
+    height: 80%;
+}
+.innercadastropage {
+    aspect-ratio: 5/4;
+    height: 90%;
+}
+.innercriarpost {
+    height: 100%;
+    overflow-y: auto;
+}
+#postminiatura, #loginminiatura {
+    aspect-ratio: 1/1;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    background-size: cover;
+}
+#loginminiatura {
+    background-image: url(../icons/logo-ecosta.jpg);
+    background-size: cover;
+}
+#infodopost, #formlogin {
+    width: 100%;
+    padding: 2vw;
+    position: relative;
+}
+.redirecionar {
+    position: absolute;
+    bottom: 3vw;
+}
+.redirecionar h2 {
+    position: relative;
+    top: -1vw;
+}
+.redirecionar a {
+    color: white;
+    padding: 0.5vw;
+    background-color: rgb(150,200,150);
+}
+#formlogin form {
+    display: inline-block;
+    width: 100%;
+}
+#formlogin form div {
+    display: block;
+    vertical-align: middle;
+    margin-top: 1vw;
+}
+#formlogin form label {
+    width: 10vw;
+}
+#formlogin input {
+    width: 100%;
+    height: 3vw;
+    background-color: rgba(60, 60, 60, 0.2);
+    border: 0;
+    border-bottom: 2px solid rgb(50, 75, 50);
+}
+#formlogin button {
+    background-color: rgb(100, 150, 100);
+    color: white;
+    height: 5vw;
+    border: 0;
+    cursor: pointer;
+}
+#formlogin input[type=submit] {
+    background-color: rgb(100, 150, 100);
+    color: white;
+    height: 5vw;
+    border: 0;
+    cursor: pointer;
+}
+#infodopost div, .formlogin div {
+    text-align: justify;
+    padding: 1vw;
+}
+#autoreid {
+    padding-bottom: 0.5vw;
+    border-bottom: 0.1vw solid rgb(150, 200, 150);
+}
+#descricaoexpandido {
+    border-bottom: 0.1vw solid rgb(150, 200, 150);
+    overflow-y: auto;
+    height: 60%;
+    word-wrap:normal;
+}
+#categoriasexpandido {
+    height: fit-content;
+    overflow-y: auto;
+    width: fit-content;
+}
+.fechar {
+    margin: 1vw;
+    margin-right: 2vw;
+    font-size: 3vw;
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
